@@ -1,0 +1,36 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'groovy'
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation gradleApi()
+    implementation localGroovy()
+
+    implementation 'org.ow2.asm:asm:7.1'
+    implementation 'org.ow2.asm:asm-util:7.1'
+    implementation 'org.ow2.asm:asm-commons:7.1'
+    implementation 'com.android.tools.build:gradle:3.2.1'
+
+}
+
+
+
+
+repositories {
+    mavenCentral()
+}
+
+group 'com.example.costmethodplugin'
+version '3.0'
+//本地发布，发布到根目录的 /repo 文件夹下
+uploadArchives{
+    repositories {
+        mavenDeployer{
+            //设置插件的GAV参数
+            pom.artifactId = 'costmethodplugin'
+            repository(url :uri('../repo'))
+        }
+    }
+}
