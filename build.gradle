@@ -2,13 +2,13 @@
 
 buildscript {
     repositories {
-        maven{
+        maven {
             //本地 Plugin 地址，注意只有一个 .
             url uri('./repo')
         }
         google()
         jcenter()
-        
+
     }
     dependencies {
         classpath 'com.example.costmethodplugin:costmethodplugin:3.0'
@@ -21,16 +21,50 @@ buildscript {
 allprojects {
 
     repositories {
-        maven{
+        maven {
             //本地 Plugin 地址，注意只有一个 .
             url uri('./repo')
         }
         google()
         jcenter()
-        
+
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+task aaa {
+    doLast {
+        println "bbb"
+    }
+}
+
+task cc {
+    doLast {
+        println "cc"
+    }
+}
+
+//this.tasks.forEach {
+//    if(it.name.equals("aaa")){
+//        println "task.name123："+it.name
+//        it.dependsOn(cc)
+//    }
+//}
+//project.getGradle().getTaskGraph().addTaskExecutionGraphListener(new TaskExecutionGraphListener() {
+//    @Override
+//    void graphPopulated(TaskExecutionGraph graph) {
+//        for (Task task : graph.getAllTasks()) {
+//            println "task.name:" + task.name;
+////            if(task.name.equals("aaa")){
+////                println "task.name:" + task.name;
+////               task.dependsOn(cc)
+////            }
+//
+//
+//        }
+//    }
+//})
+//

@@ -39,7 +39,6 @@ class CostTimePlugin extends Transform implements Plugin<Project> {
 
         }
 
-
     }
 
     /**
@@ -50,7 +49,6 @@ class CostTimePlugin extends Transform implements Plugin<Project> {
      */
     @Override
     String getName() {
-        println "getName DemoTransform"
         return "DemoTransform"
     }
 
